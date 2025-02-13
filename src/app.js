@@ -1,12 +1,15 @@
 import express from "express";
 
+import { serverStart } from "./utils/tools.js";
+import { PORT, VIEWS_DIR } from "./config/constants.js";
+
 const app = express();
-const PORT = 3000;
 
-app.listen(PORT, (error) => {
-  if (error) {
-    console.log(`Error in server setup => ${err}`);
-  }
+app.set("view engine", "ejs");
+app.set("views", VIEWS_DIR);
 
-  console.log(`Server is listening on port ${PORT}`);
+app.get("/", (_req, res) => {
+  res.render("index");
 });
+
+app.listen(PORT, (error) => serverStart(error, PORT));
