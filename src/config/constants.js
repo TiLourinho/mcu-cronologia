@@ -15,3 +15,4 @@ export const REQ_OPTIONS = {
 };
 export const ROOT_DIR = dirname(appPath).replace("/config", "");
 export const VIEWS_DIR = path.join(ROOT_DIR, "views");
+export const PUBLIC_DIR = path.join(ROOT_DIR, "public");
