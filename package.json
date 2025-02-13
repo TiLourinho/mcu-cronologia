@@ -1,0 +1,33 @@
+{
+  "name": "capstone-project-public-api",
+  "version": "1.0.0",
+  "description": "A project to make requests, using Axios in a Node.js environment, from a public API.",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiLourinho/cp-public-api.git"
+  },
+  "keywords": [
+    "javascript",
+    "node.js",
+    "express",
+    "ejs",
+    "axios"
+  ],
+  "author": "Tiago Lourinho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TiLourinho/cp-public-api/issues"
+  },
+  "homepage": "https://github.com/TiLourinho/cp-public-api#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
