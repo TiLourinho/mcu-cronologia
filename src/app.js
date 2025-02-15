@@ -14,4 +14,8 @@ app.get("/", (_req, res) => {
   res.render("index");
 });
 
+app.get("/movies", (_req, res) => {
+  res.render("movies");
+});
+
 app.listen(PORT, (error) => serverStart(error, PORT));

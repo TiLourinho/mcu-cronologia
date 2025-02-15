@@ -1,0 +1,48 @@
+.header-container {
+  background-color: #202020;
+  justify-content: center;
+  padding: 0.5rem 0;
+  width: 100%;
+
+  .active {
+    color: #f0141e;
+  }
+
+  .active:hover {
+    color: #eeeeee;
+  }
+
+  nav {
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 50%;
+
+    img {
+      width: 6rem;
+    }
+
+    ul {
+      display: flex;
+      gap: 45px;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a {
+      color: #eeeeee;
+      cursor: pointer;
+      font-family: "Roboto", serif;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: all 0.4s;
+    }
+
+    a:hover {
+      color: #f0141e;
+    }
+  }
+}

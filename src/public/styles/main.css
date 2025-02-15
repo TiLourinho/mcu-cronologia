@@ -10,8 +10,6 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-image: url("/images/background.png");
   font-family: "Funnel Sans", serif;
   font-optical-sizing: auto;
