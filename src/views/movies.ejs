@@ -1,8 +1,17 @@
 <%- include("partials/head") %>
   <%- include("partials/header") %>
-  <main class="movies-container row">
-    <section>
-
+  <main class="movies-main column">
+    <section class="movies-container row">
+      <% movieDb.forEach(({ title, poster_path, release_date }) => { %>
+        <article class="movies-card column">
+          <div class="card-image-container">
+            <img src="<%= imageBaseUrl %><%= poster_path %>" alt="<%= title %> poster">
+          </div>
+          <hr>
+          <p class="card-title"><%= title %></p>
+          <p class="card-date"><%= dateFormatter(release_date) %></p>
+        </article>
+      <% }) %>
     </section>
   </main>
 <%- include("partials/footer") %>
