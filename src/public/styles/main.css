@@ -69,10 +69,14 @@ button:hover {
   align-items: center;
   margin: auto 0;
 
-  > div {
+  > div:first-child {
     justify-content: center;
     align-items: center;
     margin-bottom: 3rem;
+  }
+
+  > div:last-child {
+    gap: 15px;
   }
 
   img {
