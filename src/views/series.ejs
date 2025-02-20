@@ -2,14 +2,14 @@
   <%- include("partials/header") %>
   <main class="mcu-main column">
     <section class="mcu-container row">
-      <% movieDb.forEach(({ title, poster_path, release_date }) => { %>
+      <% seriesDb.forEach(({ name, poster_path, first_air_date }) => { %>
         <article class="mcu-card column">
           <div class="card-image-container">
-            <img src="<%= imageBaseUrl %><%= poster_path %>" alt="<%= title %> poster">
+            <img src="<%= imageBaseUrl %><%= poster_path %>" alt="<%= name %> poster">
           </div>
           <hr>
-          <p class="card-title"><%= title %></p>
-          <p class="card-date"><%= dateFormatter(release_date) %></p>
+          <p class="card-title"><%= name %></p>
+          <p class="card-date"><%= dateFormatter(first_air_date) %></p>
         </article>
       <% }) %>
     </section>
