@@ -2,10 +2,8 @@ const container = document.querySelector(".mcu-container");
 const anchors = document.querySelectorAll(".nav-link");
 
 const url = getCurrentURL();
-const splittedUrl = url.split("/");
-const currentPage = splittedUrl[splittedUrl.length - 1];
 
-if (currentPage === "movies" || currentPage === "series") {
+if (url.includes("movies") || url.includes("series")) {
   container.addEventListener("wheel", (event) => {
     if (event.deltaY > 0) {
       container.scrollLeft += 650;
@@ -20,7 +18,7 @@ if (currentPage === "movies" || currentPage === "series") {
 anchors.forEach((anchor) => {
   const anchorValue = anchor.attributes.href.value.split("/")[1];
 
-  if (anchorValue === currentPage) {
+  if (url.includes(anchorValue)) {
     anchor.classList.add("active");
   }
 });
