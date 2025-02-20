@@ -1,3 +1,7 @@
+import axios from "axios";
+
+import { REQ_OPTIONS } from "../config/constants.js";
+
 export function serverStart(error, port) {
   if (error) {
     console.log(`Error in server setup => ${err}`);
@@ -63,4 +67,20 @@ export function formatDate(date) {
   }
 
   return `${day} de ${month} de ${year}`;
+}
+
+export async function fetchMedia(database, baseUrl) {
+  try {
+    const mediaPromises = database.map(async ({ id }) => {
+      const url = `${baseUrl}/${id}?language=pt-BR`;
+
+      const response = await axios.get(url, REQ_OPTIONS);
+      return response.data;
+    });
+
+    const media = await Promise.all(mediaPromises);
+    return media;
+  } catch (error) {
+    console.error(`Error fetching media => ${error}`);
+  }
 }
