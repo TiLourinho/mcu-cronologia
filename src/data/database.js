@@ -1,4 +1,4 @@
-const movies = [
+export const database = [
   {
     id: 1726,
     name: "Iron Man",

@@ -17,6 +17,7 @@ body {
   font-weight: 400;
   line-height: 1;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 a {
@@ -97,17 +98,19 @@ button:hover {
 
 .movies-main {
   margin: auto 0;
+  width: auto;
 
   .movies-container {
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: #202020c0;
     gap: 1.2rem;
     height: 40rem;
-    overflow: auto;
-    padding-left: 32rem;
-    width: 100vw;
+    overflow-x: scroll;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
