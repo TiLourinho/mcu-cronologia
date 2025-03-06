@@ -1,4 +1,5 @@
 import express from "express";
+import axios from "axios";
 
 import { serverStart, fetchMedia } from "./utils/tools.js";
 import {
@@ -7,6 +8,7 @@ import {
   PUBLIC_DIR,
   MOVIE_BASE_URL,
   TV_BASE_URL,
+  REQ_OPTIONS,
   RENDER_OPTIONS,
 } from "./config/constants.js";
 import { movieDatabase } from "./data/movieDatabase.js";
@@ -27,6 +29,22 @@ app.get("/movies", async (_req, res) => {
   RENDER_OPTIONS.movieDb = await fetchMedia(movieDatabase, MOVIE_BASE_URL);
 
   res.status(200).render("movies", RENDER_OPTIONS);
+});
+
+app.get("/movies/:id", async (req, res) => {
+  const { id } = req.params;
+  const url = `${MOVIE_BASE_URL}/${id}?language=pt-BR`;
+
+  try {
+    const response = await axios.get(url, REQ_OPTIONS);
+    const { data } = response;
+
+    RENDER_OPTIONS.movie = data;
+  } catch (error) {
+    console.error(`Error fetching movie => ${error}`);
+  }
+
+  res.status(200).render("movies-details", RENDER_OPTIONS);
 });
 
 app.get("/series", async (_req, res) => {
