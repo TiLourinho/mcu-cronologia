@@ -46,3 +46,26 @@
     }
   }
 }
+
+footer {
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5rem;
+  background-color: #202020;
+  color: #666666;
+
+  img {
+    height: 0.9rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 300;
+    transition: all 0.4s;
+  }
+
+  p:hover {
+    color: #eeeeee;
+  }
+}
