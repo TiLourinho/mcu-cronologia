@@ -1,8 +1,42 @@
 <%- include("partials/head") %>
   <%- include("partials/header") %>
   <main class="mcu-main column">
-    <section class="mcu-container row">
-      <p><%= movie.title %></p>
+    <section class="mcu-details-container row">
+      <div hidden>
+        <img id="backdrop" src="<%= imageBaseUrl %><%= movie.backdrop_path %>" alt="<%= movie.title %> backdrop">
+      </div>
+      <div>
+        <img src="<%= imageBaseUrl %><%= movie.poster_path %>" alt="<%= movie.title %> poster">
+      </div>
+      <article class="mcu-details column">
+        <div class="details-title-container">
+          <p class="details-title"><%= movie.title %></p>
+          <% if (movie.tagline) { %>
+            <p class="details-tagline"><%= movie.tagline %></p>
+          <% } %>
+          <p><%= movie.genres.map(item => item.name).join(", ") %> &#8226 <%= mediaLengthFormatter(movie.runtime) %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Título original:</p>
+          <p class="details-italic"><%= movie.original_title %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Lançamento:</p>
+          <p><%= dateFormatter(movie.release_date) %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Orçamento:</p>
+          <p><%= monetaryValuesFormatter(movie.budget) %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Bilheteria:</p>
+          <p><%= monetaryValuesFormatter(movie.revenue) %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Sinopse:</p>
+          <p class="details-overview"><%= movie.overview %></p>
+        </div>
+      </article>
     </section>
   </main>
 <%- include("partials/feet") %>

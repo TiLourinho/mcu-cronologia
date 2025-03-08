@@ -69,6 +69,23 @@ export function formatDate(date) {
   return `${day} de ${month} de ${year}`;
 }
 
+export function formatMediaLength(time) {
+  const hours = Math.floor(time / 60);
+  const minutes = time % 60;
+
+  return `${hours}h ${minutes}m`;
+}
+
+export function formatMonetaryValues(value) {
+  const result = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  }).format(value);
+
+  return result;
+}
+
 export async function fetchMedia(database, baseUrl) {
   try {
     const mediaPromises = database.map(async ({ id }) => {

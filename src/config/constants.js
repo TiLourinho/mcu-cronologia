@@ -1,7 +1,11 @@
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
-import { formatDate } from "../utils/tools.js";
+import {
+  formatDate,
+  formatMediaLength,
+  formatMonetaryValues,
+} from "../utils/tools.js";
 
 const appPath = fileURLToPath(import.meta.url);
 const token =
@@ -20,6 +24,8 @@ export const REQ_OPTIONS = {
 export const RENDER_OPTIONS = {
   imageBaseUrl: IMAGE_BASE_URL,
   dateFormatter: formatDate,
+  mediaLengthFormatter: formatMediaLength,
+  monetaryValuesFormatter: formatMonetaryValues,
 };
 export const ROOT_DIR = dirname(appPath).replace("/config", "");
 export const VIEWS_DIR = path.join(ROOT_DIR, "views");
