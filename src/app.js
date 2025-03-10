@@ -1,14 +1,13 @@
 import express from "express";
 import axios from "axios";
 
-import { serverStart, fetchMedia } from "./utils/tools.js";
+import { serverStart, fetchMedia, fetchMediaById } from "./utils/tools.js";
 import {
   PORT,
   VIEWS_DIR,
   PUBLIC_DIR,
   MOVIE_BASE_URL,
   TV_BASE_URL,
-  REQ_OPTIONS,
   RENDER_OPTIONS,
 } from "./config/constants.js";
 import { movieDatabase } from "./data/movieDatabase.js";
@@ -33,16 +32,7 @@ app.get("/movies", async (_req, res) => {
 
 app.get("/movies/:id", async (req, res) => {
   const { id } = req.params;
-  const url = `${MOVIE_BASE_URL}/${id}?language=pt-BR`;
-
-  try {
-    const response = await axios.get(url, REQ_OPTIONS);
-    const { data } = response;
-
-    RENDER_OPTIONS.movie = data;
-  } catch (error) {
-    console.error(`Error fetching movie => ${error}`);
-  }
+  RENDER_OPTIONS.movie = await fetchMediaById(id, MOVIE_BASE_URL);
 
   res.status(200).render("movies-details", RENDER_OPTIONS);
 });
@@ -51,6 +41,13 @@ app.get("/series", async (_req, res) => {
   RENDER_OPTIONS.seriesDb = await fetchMedia(seriesDatabase, TV_BASE_URL);
 
   res.status(200).render("series", RENDER_OPTIONS);
+});
+
+app.get("/series/:id", async (req, res) => {
+  const { id } = req.params;
+  RENDER_OPTIONS.series = await fetchMediaById(id, TV_BASE_URL);
+
+  res.status(200).render("series-details", RENDER_OPTIONS);
 });
 
 app.listen(PORT, (error) => serverStart(error, PORT));

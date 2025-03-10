@@ -91,12 +91,25 @@ export async function fetchMedia(database, baseUrl) {
     const mediaPromises = database.map(async ({ id }) => {
       const url = `${baseUrl}/${id}?language=pt-BR`;
 
-      const response = await axios.get(url, REQ_OPTIONS);
-      return response.data;
+      const { data } = await axios.get(url, REQ_OPTIONS);
+      return data;
     });
 
     const media = await Promise.all(mediaPromises);
     return media;
+  } catch (error) {
+    console.error(`Error fetching media => ${error}`);
+  }
+}
+
+export async function fetchMediaById(id, baseUrl) {
+  const url = `${baseUrl}/${id}?language=pt-BR`;
+
+  try {
+    const response = await axios.get(url, REQ_OPTIONS);
+    const { data } = response;
+
+    return data;
   } catch (error) {
     console.error(`Error fetching media => ${error}`);
   }

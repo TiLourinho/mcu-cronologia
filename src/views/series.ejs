@@ -2,15 +2,17 @@
   <%- include("partials/header") %>
   <main class="mcu-main column">
     <section class="mcu-container row">
-      <% seriesDb.forEach(({ name, poster_path, first_air_date }) => { %>
-        <article class="mcu-card column">
-          <div class="card-image-container">
-            <img src="<%= imageBaseUrl %><%= poster_path %>" alt="<%= name %> poster">
-          </div>
-          <hr>
-          <p class="card-title"><%= name %></p>
-          <p class="card-date"><%= dateFormatter(first_air_date) %></p>
-        </article>
+      <% seriesDb.forEach(({ id, name, poster_path, first_air_date }) => { %>
+        <a href="/series/<%= id %>">
+          <article class="mcu-card column">
+            <div class="card-image-container">
+              <img src="<%= imageBaseUrl %><%= poster_path %>" alt="<%= name %> poster">
+            </div>
+            <hr>
+            <p class="card-title"><%= name %></p>
+            <p class="card-date"><%= dateFormatter(first_air_date) %></p>
+          </article>
+        </a>
       <% }) %>
     </section>
   </main>

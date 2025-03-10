@@ -1,0 +1,45 @@
+<%- include("partials/head") %>
+  <%- include("partials/header") %>
+  <main class="mcu-main column">
+    <section class="mcu-details-container row">
+      <div hidden>
+        <img id="backdrop" src="<%= imageBaseUrl %><%= series.backdrop_path %>" alt="<%= series.name %> backdrop">
+      </div>
+      <div>
+        <img src="<%= imageBaseUrl %><%= series.poster_path %>" alt="<%= series.name %> poster">
+      </div>
+      <article class="mcu-details column">
+        <div class="details-title-container">
+          <p class="details-title"><%= series.name %></p>
+          <% if (series.tagline) { %>
+            <p class="details-tagline"><%= series.tagline %></p>
+          <% } %>
+          <p><%= series.genres.map(item => item.name).join(", ") %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Título original:</p>
+          <p class="details-italic"><%= series.original_name %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Lançamento:</p>
+          <p><%= dateFormatter(series.first_air_date) %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Temporadas:</p>
+          <p><%= series.number_of_seasons %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Episódios:</p>
+          <p><%= series.number_of_episodes %></p>
+        </div>
+        <div class="details-container">
+          <p class="details-subtitle">Sinopse:</p>
+          <p class="details-overview"><%= series.overview %></p>
+        </div>
+      </article>
+    </section>
+    <a href="http://localhost:3000/series">
+      <button type="button" class="back-btn">Voltar</button>
+    </a>
+  </main>
+<%- include("partials/feet") %>
