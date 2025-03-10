@@ -1,33 +1,76 @@
 <p align="center">
-  <img src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:60/https://www.filepicker.io/api/file/i9apvRTRQuSkbe13KrtM" alt="The App Brewery brand logo" />
+  <img src="./src/public/images/repo/marvel-logo.png" alt="Marvel brand logo" />
 </p>
 
-# Capstone Project - Public API
+<p align="center">
+ <a href="#funcionalidades">Funcionalidades</a> •
+ <a href="#demonstração">Demonstração</a> • 
+ <a href="#como-executar">Como executar</a> • 
+ <a href="#tecnologias">Tecnologias</a> • 
+ <a href="#autoria">Autoria</a>
+</p><br>
 
-In this project, students are expected to build a website using the Express/Node.js platform, with the Axios HTTP client, that integrates a chosen public API. The website should interact with the chosen API, retrieve data, and present it in a user-friendly manner.
+# MCU Cronologia
 
-## Objectives
+O projeto tem como objetivo apresentar aos usuários a linha do tempo completa do Universo Cinematográfico da Marvel (MCU), organizando de forma clara e acessível a ordem cronológica de seus filmes e séries. A plataforma é dividida em duas seções principais: uma dedicada aos filmes e outra às séries, permitindo a navegação por todo o catálogo disponível. Além disso, cada título conta com uma página individual onde é possível visualizar informações detalhadas, como sinopse, data de lançamento, bilheteria e outros dados relevantes, proporcionando uma experiência mais rica para os fãs do MCU.
 
-- Develop an understanding of how to integrate public APIs into web projects;
-- Gain practical experience using Express/Node.js for server-side programming;
-- Enhance understanding of client-server communication using Axios;
-- Demonstrate ability to manipulate, present, and work with data retrieved from APIs.
+## Funcionalidades
 
-## Requirements
+- Visualizar a lista de todo o catálogo de filmes e séries;
+- Visualizar os detalhes de um filme ou série em específico;
 
-1. API Choice
-   - Choose an API of interest. This choice should be guided by the potential to retrieve, manipulate, and present data in a meaningful and interactive way. I recommend choosing an API that does not require authentication and is CORS enabled.
-2. Project Planning
-   - Think through your project, researching the chosen API, its features, what data it will provide, and how it will be used in your web application.
-3. Project Setup
-   - Set up a new Node.js project using Express.js;
-   - Include Axios for making HTTP requests;
-   - Include EJS for templating;
-   - Ensure that the project has a structured directory and file organization.
-4. API Integration
-   - Implement at least a GET endpoint to interact with your chosen API;
-   - Use Axios to send HTTP requests to the API and handle responses.
-5. Data Presentation
-   - Design the application to present the retrieved data in a user-friendly way. Use appropriate HTML, CSS, and a templating engine like EJS.
-6. Error Handling
-   - Ensure that error handling is in place for both your application and any API requests. You can console log any errors, but you can also give users any user-relevant errors.
+## Demonstração
+
+<p align="center">
+  <img src="./src/public/images/repo/home.png" alt="MCU Cronologia home" />
+  <em>Home</em>
+</p>
+
+<p align="center">
+  <img src="./src/public/images/repo/movies.png" alt="MCU Cronologia página de filmes" />
+  <em>Lista de Filmes</em>
+</p>
+
+<p align="center">
+  <img src="./src/public/images/repo/movies-details.png" alt="MCU Cronologia página de detalhes de um filme" />
+  <em>Detalhes de um Filme</em>
+</p>
+
+<p align="center">
+  <img src="./src/public/images/repo/series.png" alt="MCU Cronologia página de séries" />
+  <em>Lista de Séries</em>
+</p>
+
+<p align="center">
+  <img src="./src/public/images/repo/series-details.png" alt="MCU Cronologia página de detalhes de uma série" />
+  <em>Detalhes de uma Série</em>
+</p>
+
+## Como executar
+
+```Bash
+# Clone este repositório
+$ https://github.com/TiLourinho/mcu-cronologia
+
+# Instale as dependências
+$ npm install
+
+# Inicie o servidor
+$ npm start
+```
+
+O projeto estará rodando no endereço http://localhost:3000
+
+## Tecnologias
+
+- [Node.js](https://nodejs.org/pt)
+- [Express](https://expressjs.com/pt-br/)
+- [EJS](https://ejs.co/)
+- [Axios](https://axios-http.com/)
+- [TMDB](https://www.themoviedb.org/)
+
+## Autoria
+
+Tiago Lourinho
+
+[![Gmail Badge](https://img.shields.io/badge/-lourinho.tiago@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:lourinho.tiago@gmail.com)](mailto:lourinho.tiago@gmail.com)
